@@ -1,0 +1,12 @@
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\bin\Debug\net5.0\Appointment.Contracts.deps.json
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\bin\Debug\net5.0\Appointment.Contracts.dll
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\bin\Debug\net5.0\Appointment.Contracts.pdb
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\obj\Debug\net5.0\Appointment.Contracts.csproj.AssemblyReference.cache
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\obj\Debug\net5.0\Appointment.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\obj\Debug\net5.0\Appointment.Contracts.AssemblyInfoInputs.cache
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\obj\Debug\net5.0\Appointment.Contracts.AssemblyInfo.cs
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\obj\Debug\net5.0\Appointment.Contracts.csproj.CoreCompileInputs.cache
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\obj\Debug\net5.0\Appointment.Contracts.dll
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\obj\Debug\net5.0\refint\Appointment.Contracts.dll
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\obj\Debug\net5.0\Appointment.Contracts.pdb
+D:\Licenta\SmileDentalClinicServer\services\scheduler.service\Appointment.Contracts\obj\Debug\net5.0\ref\Appointment.Contracts.dll

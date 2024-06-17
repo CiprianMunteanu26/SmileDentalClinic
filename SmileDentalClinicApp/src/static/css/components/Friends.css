@@ -1,0 +1,56 @@
+.friends-container {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1rem;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    background-color: #ccc;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.friends-container a {
+    text-decoration: none;
+    color: #020202;
+}
+
+.friend {
+    width: 350px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+    background-color: #fff;
+    transition: .3s;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px #1a1a1a;
+}
+
+.friend:hover {
+    box-shadow: 2px 2px 3px rgb(0, 60, 179);
+    color: rgb(0, 60, 179);
+}
+
+.friend-img {
+    width: 80px;
+    height: 80px;
+}
+
+.friend-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.friend-name {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}

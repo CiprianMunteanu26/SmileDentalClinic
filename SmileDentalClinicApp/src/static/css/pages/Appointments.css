@@ -1,0 +1,83 @@
+/* General Container Styles */
+.appointments-container {
+    width: 95%; /* Adjusted width for better visual balance */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* White background for container */
+    border-radius: 8px; /* Slightly increased border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Table Styles */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 18px 15px; /* More padding for a spacious look */
+    border: none; /* Remove default borders */
+    text-align: center;
+  }
+  
+  .table th {
+    background-color: #e0f2f1; /* Soft teal header background */
+    color: #37474f; /* Darker text color for contrast */
+    font-size: 1.1rem; /* Slightly larger font size */
+  }
+  
+  .table tr {
+    border-bottom: 1px solid #e0e0e0; /* Subtle line between rows */
+  }
+  
+  .table tr:last-child {
+    border-bottom: none; /* Remove bottom border from last row */
+  }
+  
+  /* Status Column Styling (Get Creative!) */
+  .table td:nth-child(6) { /* Assuming status is the 6th column */
+    font-weight: bold;
+  }
+  
+  .table .status-pending {
+    color: #f9a825; /* Orange for pending */
+  }
+  
+  .table .status-confirmed {
+    color: #4caf50; /* Green for confirmed */
+  }
+  
+  .table .status-cancelled {
+    color: #f44336; /* Red for cancelled */
+  }
+  
+  /* Hover Effect */
+  .table tbody tr:hover {
+    background-color: #f5f5f5; /* Light gray hover effect */
+    cursor: pointer; /* Indicate interactivity */
+  }
+  
+  /* Loading and No Appointments Messages */
+  .appointments-container p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #757575; /* Subtle gray for messages */
+  }
+  
+  td a {
+    display: inline-block;  /* Makes the link behave like a block element */
+    padding: 10px 20px;     /* Add padding for a button-like feel */
+    background-color: #007bff; /* Blue background */
+    color: white;           /* White text */
+    border-radius: 5px;     /* Slightly rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+  }
+  
+  td a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }

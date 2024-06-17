@@ -1,0 +1,14 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+}
+
+.section-name {
+    padding: 5px;
+    font-size: 45px;
+}

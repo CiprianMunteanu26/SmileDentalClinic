@@ -1,0 +1,6 @@
+SRV_API_USERS="https://localhost:5001/"
+SRV_API_MESSENGER_MESSAGES="https://localhost:5003/messages"
+SRV_API_MESSENGER_CONVERSATIONS="https://localhost:5003/conversations"
+SRV_API_MESSENGER_CONVBINDER="https://localhost:5003/convbinder"
+SRV_API_AUTH_LOGIN = "https://localhost:5010/auth/login";
+SRV_API_AUTH_REGISTER = "https://localhost:5010/auth/register";

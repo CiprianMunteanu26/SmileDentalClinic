@@ -1,0 +1,61 @@
+.login {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+.section-name {
+    padding: 5px;
+    font-size: 45px;
+    text-align: center;
+}
+
+.section-logo {
+    width: 350px;
+    height: 350px;
+}
+
+.section-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.form-outline {
+    position: relative;
+}
+
+.fa {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.fa:hover {
+    color: rgb(0, 60, 179);
+}
+
+.container-fluid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    justify-content: center;
+
+}
+
+.row {
+    width: 100%;
+
+}
+
+.col-md-8 .col-lg-6 .col-xl-4 {
+    box-shadow: 2px 2px 12px #000;
+}

@@ -1,0 +1,26 @@
+.user-profile-navbar {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    background-color: #0066ff;
+}
+
+.user-profile-navbar li {
+    list-style-type: none;
+    cursor: pointer;
+    font-size: 1.3vw;
+    color: #020202;
+    padding: 1.5rem;
+    transition: .3s;
+}
+
+.user-profile-active-tab {
+    background-color: #fff;
+}
+
+.user-profile-navbar li:hover {
+    background-color: #fff;
+
+}
