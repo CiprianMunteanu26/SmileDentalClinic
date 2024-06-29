@@ -13,5 +13,7 @@ namespace Scheduler.Service.Entities
         public string Type { get; set; }
         public Guid DoctorId { get; set; }//ID ul doctorului
         public string Status { get; set; }
+        public string DoctorName { get; set; }
+        public string PacientName { get; set; }
     }
 }

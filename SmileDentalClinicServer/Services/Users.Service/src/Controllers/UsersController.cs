@@ -119,7 +119,7 @@ namespace Users.Catalog.Service.Controllers
                     base64Data = updatedUserDto.ProfileImage.Replace($"data:image/jpeg;base64,", string.Empty);
                 else
                     base64Data = updatedUserDto.ProfileImage.Replace($"data:image/{imageExtension2};base64,", string.Empty);
-                targetFolder = Path.Combine("..", "..", "..", "..", "ProfiProfapp", "src", "static", "imgs", "avatars").Replace("\\", "/");
+                targetFolder = Path.Combine("..", "..", "..", "..", "SmileDentalClinicApp", "src", "static", "imgs", "avatars").Replace("\\", "/");
                 targetFolder = Path.Combine(targetFolder, fileName).Replace("\\", "/"); ;
                 byte[] bytes = Convert.FromBase64String(base64Data);
 

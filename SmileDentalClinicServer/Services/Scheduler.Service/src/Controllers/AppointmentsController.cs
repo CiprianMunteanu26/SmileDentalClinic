@@ -68,7 +68,7 @@ namespace Scheduler.Service.src.Controllers
             return NotFound(); 
         }
 
-        [HttpGet("/getappointment/{userId}")]
+        [HttpGet("/getappointment/{appointmentID}")]
         public async Task<ActionResult<IEnumerable<AppointmentDto>>> GetByAppointmentIDAsync(Guid appointmentID) 
         {
             var appointments = (await appointmentsRepository.GetAllAsync(appointment => 
@@ -99,15 +99,42 @@ namespace Scheduler.Service.src.Controllers
         [HttpPost("set")]
         public async Task<ActionResult<AppointmentDto>> PostAppointmentsAsync(CreateAppointmentDto createAppointmentDto)
         {
+            var startTime = createAppointmentDto.StartTime;
+            var endTime = startTime.AddHours(1); // Calculam endTime
+            
+            // Verificam daca ziua este sâmbata sau duminica (pentru ambele startTime ?i endTime)
+            if (startTime.DayOfWeek == DayOfWeek.Saturday || startTime.DayOfWeek == DayOfWeek.Sunday ||
+                endTime.DayOfWeek == DayOfWeek.Saturday || endTime.DayOfWeek == DayOfWeek.Sunday)
+            {
+                return BadRequest("Programarile nu pot fi facute sâmbata sau duminica.");
+            }
+
+            if ((startTime.Hour < 9 && endTime.Hour < 9) || 
+                (startTime.Hour >= 17 && endTime.Hour >= 17) ||
+                (startTime.Hour >= 17 && endTime.Hour < 9)) // Cazul în care trece peste miezul nop?ii
+            {
+                return BadRequest("Programarile trebuie sa fie între orele 9:00 ?i 17:00.");
+            }
+            var existingAppointments = await appointmentsRepository.GetAllAsync(appointment => 
+                 appointment.DoctorId == createAppointmentDto.DoctorId &&
+                 appointment.StartTime < endTime && appointment.EndTime > startTime);
+
+
+            if (existingAppointments.Any())
+            {
+                return BadRequest("Doctorul are deja o programare în acest interval de timp."); 
+            }
             var appointment = new Appointment
             {
                 UserId = createAppointmentDto.UserId,
                 Name = createAppointmentDto.Type,
-                StartTime = createAppointmentDto.StartTime,
-                EndTime = createAppointmentDto.EndTime,
+                StartTime = startTime,
+                EndTime = endTime,
                 Type = createAppointmentDto.Type,
                 DoctorId = createAppointmentDto.DoctorId,
-                Status = createAppointmentDto.Status
+                Status = createAppointmentDto.Status,
+                DoctorName = createAppointmentDto.DoctorName,
+                PacientName = createAppointmentDto.PacientName
             };
             await appointmentsRepository.CreateAsync(appointment);
             return CreatedAtAction(nameof(PostAppointmentsAsync), new
@@ -117,9 +144,9 @@ namespace Scheduler.Service.src.Controllers
         }
 
         [HttpPut("/put/{id}")]
-        public async Task<IActionResult> PutAsync(Guid id, UpdateAppointmentDto updatedAppointmentDto)
+        public async Task<IActionResult> PutAsync(UpdateAppointmentDto updatedAppointmentDto)
         {
-            var updatedAppointment = await appointmentsRepository.GetAsync(id);
+            var updatedAppointment = await appointmentsRepository.GetAsync(updatedAppointmentDto.AppointmentId);
             if (updatedAppointment == null) return NotFound();
 
             updatedAppointment.StartTime = updatedAppointmentDto.StartTime;
