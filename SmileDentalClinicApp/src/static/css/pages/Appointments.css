@@ -19,7 +19,7 @@
   
   .table th,
   .table td {
-    padding: 18px 15px; /* More padding for a spacious look */
+    padding: 20px 15px; /* More padding for a spacious look */
     border: none; /* Remove default borders */
     text-align: center;
   }

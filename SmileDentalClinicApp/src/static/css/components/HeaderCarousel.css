@@ -33,12 +33,12 @@
 
 .carousel-capt-container .carousel-capt-btn {
     color: #fff;
-    padding: 20px;
+    padding: 15px;
     border: 1px solid #fff;
     font-size: 20px;
     cursor: pointer;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 4px;
     transition: .3s;
 }
 

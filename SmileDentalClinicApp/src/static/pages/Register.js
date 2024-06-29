@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import '../css/pages/Register.css'
 import AuthService from '../../services/auth.service';
 import { Link } from 'react-router-dom';
+import ToastError from '../../components/ToastError';
+import ToastSucces from '../../components/ToastSucces';
 function Register()
 {
     const [fname, setFname] = useState("");
@@ -11,22 +13,37 @@ function Register()
     const [passwordRpt, setPasswordRpt] = useState("");
     const [phoneNr, setPhoneNr] = useState("");
     const [role, setRole] = useState("");
-
+    const [err, setErr] = useState("");
+    const [succes, setSucces] = useState("");
     const handleRegister = async (e) =>
     {
         e.preventDefault();
         try
         {
             await AuthService.register(fname, lname, email, password, role);
-
+            window.location.replace("/login");
+            setSucces("Contul a fost creat cu succes!");
         }
         catch (err)
         {
-            console.log(err);
+            if (err.response && err.response.status === 401)
+                {
+                    setErr("Date invalide");
+                }
         }
     }
+    const resetError = () =>
+        {
+            setErr("");
+        }
+    const resetSucces = () =>
+        {
+            setSucces("");
+        }
     return (
         <>
+            {err && <ToastError message={err} duration={4000} resetError={resetError} />}
+            {succes && <ToastSucces message={succes} duration={4000} resetError={resetSucces} />}
             <section className="register">
                 <div className="section-name">Înregistrare</div>
                 <div className="container-fluid h-custom">

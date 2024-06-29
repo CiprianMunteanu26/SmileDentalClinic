@@ -103,7 +103,7 @@ const updateAppointment = async (appointmentId, startTime, endTime, status) =>
     {
         try
         {
-            await axios.put(API_URL + "appointments/" + appointmentId, { StartTime: startTime, EndTime: endTime, Status: status}, {
+            await axios.put(API_URL + "put/" + appointmentId, {AppointmentId:appointmentId, StartTime: startTime, EndTime: endTime, Status: status}, {
                 
             });
         }
@@ -112,16 +112,17 @@ const updateAppointment = async (appointmentId, startTime, endTime, status) =>
             return Promise.reject(error);
         }
     }
-const setAppointment = async (pacientID, starttime, endtime, type, doctorID, status) => {
+const setAppointment = async (pacientID, starttime, type, doctorID, status, doctorName, pacientName) => {
     try {
       const response = await axios.post(API_URL + "appointments/set", { 
           
               UserId: pacientID, 
               StartTime: starttime,
-              EndTime: endtime,
               Type: type,
               DoctorId: doctorID,
-              Status: status
+              Status: status,
+              DoctorName: doctorName,
+              PacientName: pacientName
           
       });
   
@@ -133,7 +134,7 @@ const setAppointment = async (pacientID, starttime, endtime, type, doctorID, sta
     }
   };
 
-const AcademicService = {
+const SchedulerService = {
     getAllAppointments,
     setAppointment,
     getAppointmentsByUid,
@@ -141,4 +142,4 @@ const AcademicService = {
     updateAppointment
 };
 
-export default AcademicService;
+export default SchedulerService;

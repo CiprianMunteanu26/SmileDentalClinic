@@ -1,5 +1,5 @@
 // import { useEffect, useState } from "react";
-// import AcademicService from "../../services/academic.service";
+// import SchedulerService from "../../services/scheduler.service";
 // import { Link } from "react-router-dom";
 // import SearchBar from "../../components/big/SearchBar";
 // import UserService from '../../services/users.service';
@@ -35,7 +35,7 @@
 //     {
 //         try
 //         {
-//             const response = await AcademicService.getAppointmentsByUid(logedUser.id);
+//             const response = await SchedulerService.getAppointmentsByUid(logedUser.id);
 //             if (response != null)
 //             {
 //                 setAppointments(response);
@@ -51,7 +51,7 @@
 //         try
 //         {
 //             if (!dt) handleGetAppointments();
-//             const response = await AcademicService.GetByUserIDAsync(dt, "Pacient");
+//             const response = await SchedulerService.GetByUserIDAsync(dt, "Pacient");
 //             if (response != null)
 //             {
 //                 setAppointments(response);
@@ -117,7 +117,7 @@
 // }
 // export default Appointments;
 import { useEffect, useState } from "react";
-import AcademicService from "../../services/academic.service";
+import SchedulerService from "../../services/scheduler.service";
 import { Link } from "react-router-dom";
 import SearchBar from "../../components/big/SearchBar";
 import UserService from "../../services/users.service";
@@ -135,7 +135,7 @@ function Appointments() {
                 
                 if (usr) { // Fetch appointments only when loggedUser is available
                     
-                  const response = await AcademicService.getAppointmentsByUid(usr.id);
+                  const response = await SchedulerService.getAppointmentsByUid(usr.id);
                   setAppointments(response || []);
                   console.log(appointments);
                 }
@@ -149,25 +149,25 @@ function Appointments() {
         fetchData();
     }, []); // Empty dependency array ensures this runs only once on component mount
 
-    useEffect(() => {
-        const enrichAppointments = async () => {
-            const updatedAppointments = await Promise.all(
-                appointments.map(async (appointment) => {
-                    const [patient, doctor] = await Promise.all([
-                        UserService.getById(appointment.UserId),
-                        UserService.getById(appointment.DoctorId),
-                    ]);
+    // useEffect(() => {
+    //     const enrichAppointments = async () => {
+    //         const updatedAppointments = await Promise.all(
+    //             appointments.map(async (appointment) => {
+    //                 const [patient, doctor] = await Promise.all([
+    //                     UserService.getById(appointment.UserId),
+    //                     UserService.getById(appointment.DoctorId),
+    //                 ]);
 
-                    return { ...appointment, patient, doctor };
-                })
-            );
-            setAppointments(updatedAppointments);
-        };
+    //                 return { ...appointment, patient, doctor };
+    //             })
+    //         );
+    //         setAppointments(updatedAppointments);
+    //     };
 
-        if (appointments.length > 0 && logedUser) {
-            enrichAppointments();
-        }
-    }, [appointments, logedUser]); 
+    //     if (appointments.length > 0 && logedUser) {
+    //         enrichAppointments();
+    //     }
+    // }, [appointments, logedUser]); 
 
     // ... (Your other function handles - handleGetSearchedStud and updateData)
 
@@ -195,7 +195,7 @@ function Appointments() {
                 
                 {loading ? (
                     <p>Loading appointments...</p> // Display loading message
-                ) : appointments.length > 0 ? (
+                ) : appointments.length >= 0 ? (
                     <table className="table table-hover">
                         <thead>
                             <tr>
@@ -206,7 +206,7 @@ function Appointments() {
                                 <th scope="col">End</th>
                                 <th scope="col">Status</th>
                                 {logedUser.role === "pacient" && (
-                                <th scope="col"> <td><Link to={`/CreateAppointment`}>Programeaza-te!</Link></td></th>
+                                <th scope="col"> <Link to={`/CreateAppointment`}>Programeaza-te!</Link></th>
                                 )
                             }
                             </tr>
@@ -215,12 +215,8 @@ function Appointments() {
                             {appointments.map((appointment) => (
                                 <tr key={appointment.id}>
                                     <td>{appointment.type}</td>
-                                    <td>
-                                        {appointment.doctor?.fname}, {appointment.doctor?.lname} 
-                                    </td>
-                                    <td>
-                                        {appointment.patient?.fname}, {appointment.patient?.lname} 
-                                    </td>
+                                    <td>{appointment.doctorName}</td>
+                                    <td>{appointment.pacientName}</td>
                                     <td>{formatDateTime(appointment.startTime)}</td>
                                     <td>{formatDateTime(appointment.endTime)}</td>
                                     <td>{appointment.status}</td> {/* Add the status column */}

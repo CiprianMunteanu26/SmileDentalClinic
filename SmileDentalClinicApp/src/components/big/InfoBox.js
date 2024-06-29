@@ -45,7 +45,7 @@ const InfoBox = () =>
                 <div className='scroll-transition-tit'>
                     Cum funcționează?
                 </div>
-                <p>Puteți căuta un doctor în bara de căutare de mai jos fie doar după nume și email sau și după alte criterii dacă apăsați pe butonul 'Avansat'. Dacă căutarea s-a efectuat cu succes din lista de doctori apărută într-un tabel puteți vizualiza informațile despre doctor sau puteți naviga către pagina de profil a acestuia unde puteți vedea informații suplimentare și îi puteți trimite și mesaje. De asemenea, puteți să îl adaugați la prieteni ca pe viitor să nu mai fie nevoie să îl căutați.</p>
+                <p>Puteți căuta un doctor folosind bara de căutare după numele și email-ul dorit. Dacă căutarea s-a efectuat cu succes din lista de doctori apărută într-un puteți vizualiza informațile despre doctor sau puteți naviga către pagina de profil a acestuia unde puteți vedea informații suplimentare și îi puteți trimite și mesaje. De asemenea, puteți sa creati o programare la doctorul dorit din pagina Programari, selectand data si serviciul dorit.</p>
             </div>
         </div>
     );

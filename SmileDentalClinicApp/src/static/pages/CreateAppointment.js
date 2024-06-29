@@ -1,20 +1,22 @@
 import { useState, useRef, useEffect } from 'react';
 import '../css/pages/createAppointment.css'
-import AcademicService from '../../services/academic.service';
+import SchedulerService from '../../services/scheduler.service';
 import UserService from '../../services/users.service';
 import { Link } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
+import ToastError from '../../components/ToastError';
+import ToastSucces from '../../components/ToastSucces';
 
 function CreateAppointment()
 {
     const [starttime, setStartTime] = useState("");
-    const [endtime, setEndTime] = useState("");
     const [type, setType] = useState("");
     const [doctorID, setdoctorID] = useState("");
     const [pacientID, setpacientID] = useState("");
     const [doctors, setDoctors] = useState("");
-    const [status, setStatus] = useState("");
-
+    const status = "Programat";
+    const [error, setError] = useState("");
+    const [succes, setSucces] = useState("");
     useEffect(() =>
     {
         fetchPacientID();
@@ -24,14 +26,21 @@ function CreateAppointment()
     const handleCreateAppointment = async (e) =>
     {
         e.preventDefault();
+        
         try
         {
-            setStatus("Confirmata");
-            await AcademicService.setAppointment(pacientID, starttime, endtime, type, doctorID, status);
+            const doctor = await UserService.getById(doctorID);
+            const pacient = await UserService.getById(pacientID);
+
+            const doctorName = `${doctor.lnmae}, ${doctor.fname}`;
+            const pacientName = `${pacient.lnmae}, ${pacient.fname}`;
+            await SchedulerService.setAppointment(pacientID, starttime, type, doctorID, status,doctorName, pacientName);
+            setSucces("Programarea a fost creata cu succes!");
         }
         catch (err)
         {
             console.log(err);
+            setError("Programarea nu poate fi creata in perioada selectata!");
         }
     }
     
@@ -57,13 +66,29 @@ function CreateAppointment()
                 console.error(error);
             }
         };
-
+        const scheduleData = [
+            { day: "Luni - Vineri", hours: "09:00 - 17:00" },
+            { day: "Sâmbătă", hours: "Închis" },
+            { day: "Duminică", hours: "Închis" },
+        ];
+        const resetError = () =>
+            {
+                setError("");
+            }
+        
+            const resetSucces = () =>
+            {
+                setSucces("");
+            }
+        
     return (
         <>
+        <div id="page-content">
                     <section className="CreateAppointment">
-            <div className="section-name">Programeaza-te</div>
-            <div className="container-fluid h-custom">
-                <div className="row d-flex justify-content-center align-items-center h-100">
+                    {error && <ToastError message={error} duration={4000} resetError={resetError} />}
+                    {succes && <ToastSucces message={succes} duration={4000} resetError={resetSucces} />}
+                <h2 className="section-name">Programează-te</h2>
+                <div className="container-grid"> 
                     <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                         <form onSubmit={handleCreateAppointment}>
                             <div className="form-outline mb-4">
@@ -77,21 +102,6 @@ function CreateAppointment()
                                     onChange={(e) => setStartTime(e.target.value)}
                                     required
                                     onInvalid={(e) => e.target.setCustomValidity('Introduceți numele dumneavoastră')}
-                                    onInput={(e) => e.target.setCustomValidity('')}
-                                />
-                            </div>
-
-                            <div className="form-outline mb-4">
-                                <label className="form-label" htmlFor="endtime">Ora sfarsit</label>
-                                <input
-                                    type="datetime-local"
-                                    id="endtime"
-                                    className="form-control form-control-lg"
-                                    placeholder="Alege ora la care doresti sa se termine programarea"
-                                    value={endtime}
-                                    onChange={(e) => setEndTime(e.target.value)}
-                                    required
-                                    onInvalid={(e) => e.target.setCustomValidity('Introduceți o adresă de email validă')}
                                     onInput={(e) => e.target.setCustomValidity('')}
                                 />
                             </div>
@@ -138,10 +148,29 @@ function CreateAppointment()
                             </div>
                         </form>
                     </div>
+                    <div className="clinic-schedule">
+                        <h3>Orar Clinică</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Zi</th>
+                                    <th>Ore</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {scheduleData.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{item.day}</td>
+                                        <td>{item.hours}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
+            {/* </div> */}
         </section>
-
+        </div>
         </>
     );
 

@@ -4,10 +4,36 @@ function About()
 {
     return (
         <div className="container-about">
-            <div className="container-message">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
+    <div className="container-message">
+        <p>Smile Dental Clinic ofera o gama completa de tratamente stomatologice moderne, de la implanturi pâna la albire ?i ortodon?ie. Cu o echipa de medici experimenta?i ?i tehnologie de ultima genera?ie, clinica se dedica asigurarii unor zâmbete sanatoase ?i frumoase pentru fiecare pacient!</p>
+    </div>
+
+    <div className="container-schedule">  
+        <h2>Orar Clinica</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Zi</th>
+                    <th>Ore</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Luni - Vineri</td>
+                    <td>09:00 - 17:00</td>
+                </tr>
+                <tr>
+                    <td>Sâmbata</td>
+                    <td>Închis</td>
+                </tr>
+                <tr>
+                    <td>Duminica</td>
+                    <td>Închis</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
     )
 }
 export default About;

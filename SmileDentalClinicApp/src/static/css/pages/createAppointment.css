@@ -1,104 +1,122 @@
-/* CreateAppointment.css */
-
-/* General Section Styles */
-.CreateAppointment {
-    padding: 40px 20px;
-    background-color: #f1f1f1;
+/* Page Container */
+#page-content {
+    width: 95%; 
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section-name {
-    font-size: 80px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    text-align: center;
-    color: #3309f3;
-}
-
-.container-fluid.h-custom {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Form Styles */
-.form-outline {
-    margin-bottom: 35px;
-}
-
-.form-control-lg {
-    font-size: 1.65rem;
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #ced4da;
-}
-
-.form-control-lg:focus {
-    border-color: #80bdff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
-}
-
-.form-label {
-    font-size: 1rem;
-    margin-top: 10px;
-    color: #555;
-}
-
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-group select {
-    font-size: 1.85rem;
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #ced4da;
-}
-
-.text-center.text-lg-start {
+    box-sizing: border-box; 
+  }
+  /* General Section Styles */
+  .CreateAppointment {
+    padding: 50px 10px; 
+    background-color: #fff;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.btn-primary.btn-lg {
-    font-size: 1.55rem;
-    padding: 15px 30px;
-    border-radius: 6px;
+    
+  }
+  
+  .section-name {
+    font-size: 3rem; 
+    margin-bottom: 40px; 
+    text-align: center;
+    color: #007bff; 
+  }
+  
+  
+  /* Form & Schedule Grid Container */
+  .container-grid {
+    display: grid;
+    grid-template-columns: 6fr 2fr; 
+    gap: 10px;
+    align-items: start;
+  }
+  /* Form Styles */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-outline {
+    position: relative; 
+    margin-bottom: 15px; 
+  }
+   
+  .form-control-lg {
+    font-size: 1.2rem; 
+    padding: 15px;
+    height: 60px;
+    border-radius: 15px;
+    border: 1px solid #ced4da;
+    width: 100%;
+  }
+  
+  .form-control-lg:focus {
+    border-color: #007bff;
+    box-shadow: none;
+  }
+  
+  /* Form Label Styling */
+  .form-label {
+    font-size: 1rem;
+    display: block; 
+    margin-bottom: 5px;
+  }
+  
+  .form-group select { /* Style for select dropdowns */
+    font-size: 1.2rem;
+    padding: 10px;
+    height: 60px;
+    border-radius: 15px;
+    border: 1px solid #ced4da;
+    width: 100%;
+  }
+  
+  /* Submit Button Styling */
+  .text-center.text-lg-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-primary.btn-lg {
+    font-size: 1.1rem; 
+    padding: 12px 24px;
+    border-radius: 8px;
     background-color: #007bff;
     border: none;
     transition: background-color 0.3s ease;
-}
-
-.btn-primary.btn-lg:hover {
+  }
+  
+  .btn-primary.btn-lg:hover {
     background-color: #0056b3;
-}
-
-.small.fw-bold {
-    font-weight: bold;
-    color: #333;
-}
-
-.link-danger {
-    color: #dc3545;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.link-danger:hover {
-    color: #b21f2d;
-    text-decoration: underline;
-}
-
-/* Additional Styles for Input Placeholders */
-input::placeholder, select::placeholder {
-    color: #999;
-    opacity: 1; /* Override default opacity */
-}
-
-label {
-    margin-bottom: 5px;
-    display: inline-block;
-}
+  }
+  
+  /* Clinic Schedule */
+  .clinic-schedule {
+    width: 160%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .clinic-schedule h3 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+  }
+  
+  .clinic-schedule table {
+    width: 100%;
+    padding: 40px;
+    border-collapse: collapse;
+  }
+  
+  .clinic-schedule th, .clinic-schedule td {
+    border: 1px solid #ddd;
+    padding: 12px; 
+    text-align: left;
+  }
+  

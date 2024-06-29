@@ -16,7 +16,6 @@ function About(props)
                             </>
                         )}
                         <div className='user-details-item'>Rol: {props.message.user.role}</div>
-                        <div className='user-details-item'>Despre: {props.message.user.details}</div>
                     </div>
                 )
             }

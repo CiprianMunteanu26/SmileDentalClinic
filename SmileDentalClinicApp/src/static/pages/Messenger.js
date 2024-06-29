@@ -187,9 +187,9 @@ function Messenger()
                                         <div className="info-conv">
                                             <div className="conv-name">{user ? (user.fname + " " + user.lnmae) : 'placeholder'}</div>
                                             <div className="info-conv-msgs">Mesaje: {messagesForCound[index].length}</div>
-                                            {/* <div className="info-conv-date">Data ultimului mesaj: {messagesForCound[index][messagesForCound[index].length - 1].createdDate.split("T")[1].split(":")[0]}:
+                                            <div className="info-conv-date">Data ultimului mesaj: {messagesForCound[index][messagesForCound[index].length - 1].createdDate.split("T")[1].split(":")[0]}:
                                                 {messagesForCound[index][messagesForCound[index].length - 1].createdDate.split("T")[1].split(":")[1]} <br />
-                                                {messagesForCound[index][messagesForCound[index].length - 1].createdDate.split("T")[0]}</div> */}
+                                                {messagesForCound[index][messagesForCound[index].length - 1].createdDate.split("T")[0]}</div>
                                         </div>
                                     </div>
                                 );
