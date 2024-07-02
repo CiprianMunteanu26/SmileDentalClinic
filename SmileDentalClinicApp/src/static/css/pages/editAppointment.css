@@ -1,0 +1,58 @@
+/* style.css */
+
+.EditAppointment {
+    padding: 40px 20px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; /* Activează flexbox */
+    flex-direction: column; /* Aranjează elementele pe verticală */
+    align-items: center; /* Centrează elementele pe orizontală */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70vh;
+}
+  
+  .edit-form {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff; /* Fundal alb pentru formular */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Umbre ușoare pentru profunzime */
+    border-radius: 8px; /* Colțuri mai rotunjite */
+  }
+  
+  .edit-form label {
+    display: block; /* Afișează etichetele pe linii separate */
+    margin-bottom: 5px;
+  }
+  
+  .edit-form .form-control,
+  .edit-form .form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding și border în lățime */
+  }
+  
+  .edit-form .btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Efect de hover */
+  }
+  
+  .edit-form .btn-primary:hover {
+    background-color: #0056b3; /* Culoare mai închisă la hover */
+  }
+  

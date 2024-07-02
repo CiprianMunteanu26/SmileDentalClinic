@@ -5,11 +5,11 @@ function About()
     return (
         <div className="container-about">
     <div className="container-message">
-        <p>Smile Dental Clinic ofera o gama completa de tratamente stomatologice moderne, de la implanturi p�na la albire ?i ortodon?ie. Cu o echipa de medici experimenta?i ?i tehnologie de ultima genera?ie, clinica se dedica asigurarii unor z�mbete sanatoase ?i frumoase pentru fiecare pacient!</p>
+        <p>Smile Dental Clinic oferă o gamă completă de tratamente stomatologice moderne, de la implanturi până la albire și ortodonție. Cu o echipă de medici experimentați și tehnologie de ultimă generație, clinica se dedică asigurării unor zâmbete sănătoase și frumoase pentru fiecare pacient!</p>
     </div>
 
     <div className="container-schedule">  
-        <h2>Orar Clinica</h2>
+        <h2>Orar Clinică</h2>
         <table>
             <thead>
                 <tr>
@@ -23,12 +23,12 @@ function About()
                     <td>09:00 - 17:00</td>
                 </tr>
                 <tr>
-                    <td>S�mbata</td>
-                    <td>�nchis</td>
+                    <td>Sâmbătă</td>
+                    <td>Închis</td>
                 </tr>
                 <tr>
-                    <td>Duminica</td>
-                    <td>�nchis</td>
+                    <td>Duminică</td>
+                    <td>Închis</td>
                 </tr>
             </tbody>
         </table>

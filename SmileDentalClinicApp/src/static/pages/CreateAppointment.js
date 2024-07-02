@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import '../css/pages/createAppointment.css'
-import SchedulerService from '../../services/scheduler.service';
+import AcademicService from '../../services/academic.service';
 import UserService from '../../services/users.service';
 import { Link } from 'react-router-dom';
 import jwtDecode from "jwt-decode";
@@ -34,7 +34,7 @@ function CreateAppointment()
 
             const doctorName = `${doctor.lnmae}, ${doctor.fname}`;
             const pacientName = `${pacient.lnmae}, ${pacient.fname}`;
-            await SchedulerService.setAppointment(pacientID, starttime, type, doctorID, status,doctorName, pacientName);
+            await AcademicService.setAppointment(pacientID, starttime, type, doctorID, status,doctorName, pacientName);
             setSucces("Programarea a fost creata cu succes!");
         }
         catch (err)

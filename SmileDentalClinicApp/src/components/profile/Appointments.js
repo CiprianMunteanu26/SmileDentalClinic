@@ -1,6 +1,6 @@
 import '../../static/css/components/Appointments.css'
 import { useState, useEffect } from 'react';
-import SchedulerService from '../../services/scheduler.service'
+import AcademicService from '../../services/academic.service'
 import ToastError from '../ToastError';
 import ToastSucces from '../ToastSucces';
 function Appointments(props)
@@ -46,7 +46,7 @@ function Appointments(props)
     {
         try
         {
-            const response = await SchedulerService.getAllAppointments();
+            const response = await AcademicService.getAllAppointments();
             setAppointments(response);
         }
         catch {
@@ -58,7 +58,7 @@ function Appointments(props)
     {
         try
         {
-            const response = await SchedulerService.getAppointmentsByUid(props.message.user.id);
+            const response = await AcademicService.getAppointmentsByUid(props.message.user.id);
             setUserAppointments(response);
         }
         catch {
@@ -70,7 +70,7 @@ function Appointments(props)
     {
         try
         {
-            const response = await SchedulerService.setAppointment(props.message.logedUser.id, selectedAppointment);
+            const response = await AcademicService.setAppointment(props.message.logedUser.id, selectedAppointment);
             setSucces("Cursul a fost asociat cu succes. Reîncarcă pagina.");
         }
         catch {

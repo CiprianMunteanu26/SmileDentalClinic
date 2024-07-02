@@ -1,5 +1,5 @@
 // import { useEffect, useState } from "react";
-// import SchedulerService from "../../services/scheduler.service";
+// import AcademicService from "../../services/academic.service";
 // import { Link } from "react-router-dom";
 // import SearchBar from "../../components/big/SearchBar";
 // import UserService from '../../services/users.service';
@@ -35,7 +35,7 @@
 //     {
 //         try
 //         {
-//             const response = await SchedulerService.getAppointmentsByUid(logedUser.id);
+//             const response = await AcademicService.getAppointmentsByUid(logedUser.id);
 //             if (response != null)
 //             {
 //                 setAppointments(response);
@@ -51,7 +51,7 @@
 //         try
 //         {
 //             if (!dt) handleGetAppointments();
-//             const response = await SchedulerService.GetByUserIDAsync(dt, "Pacient");
+//             const response = await AcademicService.GetByUserIDAsync(dt, "Pacient");
 //             if (response != null)
 //             {
 //                 setAppointments(response);
@@ -117,7 +117,7 @@
 // }
 // export default Appointments;
 import { useEffect, useState } from "react";
-import SchedulerService from "../../services/scheduler.service";
+import AcademicService from "../../services/academic.service";
 import { Link } from "react-router-dom";
 import SearchBar from "../../components/big/SearchBar";
 import UserService from "../../services/users.service";
@@ -135,7 +135,7 @@ function Appointments() {
                 
                 if (usr) { // Fetch appointments only when loggedUser is available
                     
-                  const response = await SchedulerService.getAppointmentsByUid(usr.id);
+                  const response = await AcademicService.getAppointmentsByUid(usr.id);
                   setAppointments(response || []);
                   console.log(appointments);
                 }

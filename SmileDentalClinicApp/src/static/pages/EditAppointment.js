@@ -2,7 +2,7 @@ import '../../static/css/pages/editAppointment.css'
 import { useState, useEffect } from 'react';
 import ToastError from '../../components/ToastError';
 import ToastSucces from '../../components/ToastSucces';
-import SchedulerService from '../../services/scheduler.service';
+import AcademicService from '../../services/academic.service';
 import { useParams } from "react-router-dom";
 function EditAppointment()
 {
@@ -33,7 +33,7 @@ function EditAppointment()
             try
             {
                 
-                await SchedulerService.updateAppointment(appointmentID, startTime, endTime, status);
+                await AcademicService.updateAppointment(appointmentID, startTime, endTime, status);
                 setSucces("Programare actualizata!");
             }
             catch (error)
@@ -50,7 +50,7 @@ function EditAppointment()
                 {
                     console.log(appointmentID);
                     const appID = await getCurrentappointmentid();
-                    const response = await SchedulerService.getAppointmentByAppointmentUid(appID);
+                    const response = await AcademicService.getAppointmentByAppointmentUid(appID);
                     setappoinmentID(appID);
                     setAppointment(response);
                 }

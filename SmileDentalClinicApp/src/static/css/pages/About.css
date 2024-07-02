@@ -5,10 +5,10 @@
     width: 100%;
     height: 90vh;
     display: flex;
-    flex-direction: column; /* Aranjeaza con?inutul pe verticala */
+    flex-direction: column; /* Aranjează conținutul pe verticală */
     justify-content: center;
     align-items: center;
-    padding: 20px; /* Adauga spa?iu �n jurul containerului */
+    padding: 20px; /* Adaugă spațiu în jurul containerului */
 }
 
 .container-message {

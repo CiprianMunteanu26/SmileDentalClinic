@@ -134,7 +134,7 @@ const setAppointment = async (pacientID, starttime, type, doctorID, status, doct
     }
   };
 
-const SchedulerService = {
+const AcademicService = {
     getAllAppointments,
     setAppointment,
     getAppointmentsByUid,
@@ -142,4 +142,4 @@ const SchedulerService = {
     updateAppointment
 };
 
-export default SchedulerService;
+export default AcademicService;
